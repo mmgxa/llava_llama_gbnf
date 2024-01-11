@@ -1,0 +1,24 @@
+interface Car {
+  make: string;
+  model: string;
+  year: number;
+  colors: string[];
+  features: Features;
+}
+
+interface Features {
+  safety: SafetyFeature;
+  performance: PerformanceFeature;
+}
+
+interface SafetyFeature {
+  airbags: number;
+  parkingSensors: number;
+  laneAssist: number;
+}
+
+interface PerformanceFeature {
+  engine: string;
+  horsepower: number;
+  topSpeed: number;
+}

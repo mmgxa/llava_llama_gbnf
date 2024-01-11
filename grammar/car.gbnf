@@ -1,0 +1,15 @@
+root ::= Car
+PerformanceFeature ::= "{"   ws   "\"engine\":"   ws   string   ","   ws   "\"horsepower\":"   ws   number   ","   ws   "\"topSpeed\":"   ws   number   "}"
+PerformanceFeaturelist ::= "[]" | "["   ws   PerformanceFeature   (","   ws   PerformanceFeature)*   "]"
+SafetyFeature ::= "{"   ws   "\"airbags\":"   ws   number   ","   ws   "\"parkingSensors\":"   ws   number   ","   ws   "\"laneAssist\":"   ws   number   "}"
+SafetyFeaturelist ::= "[]" | "["   ws   SafetyFeature   (","   ws   SafetyFeature)*   "]"
+Features ::= "{"   ws   "\"safety\":"   ws   SafetyFeature   ","   ws   "\"performance\":"   ws   PerformanceFeature   "}"
+Featureslist ::= "[]" | "["   ws   Features   (","   ws   Features)*   "]"
+Car ::= "{"   ws   "\"make\":"   ws   string   ","   ws   "\"model\":"   ws   string   ","   ws   "\"year\":"   ws   number   ","   ws   "\"colors\":"   ws   stringlist   ","   ws   "\"features\":"   ws   Features   "}"
+Carlist ::= "[]" | "["   ws   Car   (","   ws   Car)*   "]"
+string ::= "\""   ([^"]*)   "\""
+boolean ::= "true" | "false"
+ws ::= [ \t\n]*
+number ::= [0-9]+   "."?   [0-9]*
+stringlist ::= "["   ws   "]" | "["   ws   string   (","   ws   string)*   ws   "]"
+numberlist ::= "["   ws   "]" | "["   ws   string   (","   ws   number)*   ws   "]"
